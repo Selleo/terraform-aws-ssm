@@ -13,6 +13,7 @@ variable "kms_arn" {
 variable "log_group_name" {
   type        = string
   description = "CloudWatch log group name for storing logs"
+  default     = ""
 }
 
 variable "s3" {
