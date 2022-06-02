@@ -10,7 +10,8 @@ Module for managing SSM.
 
 Generate docs:
 ```
-terraform-docs markdown ./modules/ssm > ./modules/ssm/README.md
+terraform-docs markdown ./modules/ssm        > ./modules/ssm/README.md
+terraform-docs markdown ./modules/parameters > ./modules/parameters/README.md
 ```
 
 ## LICENSE
