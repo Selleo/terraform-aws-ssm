@@ -1,10 +1,10 @@
 # Terraform AWS SSM module
 
-Module for managing SSM.
+Module for managing System Manager.
 
-## Maintainers
-
-* Bartłomiej Wójtowicz ([@qbart](https://github.com/qbart))
+Supported services:
+- store parameters
+- SSM documents for connecting to node
 
 ## Development
 
