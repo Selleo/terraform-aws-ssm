@@ -17,7 +17,7 @@ module "secrets" {
     RAILS_ENV       = module.info.context.stage
     PORT            = "3000"
     SECRET_KEY_BASE = random_id.secret_key_base.hex
-    DATABASE_URL    = "postgres://portal:secret@localhost:5432/kudos"
+    DATABASE_URL    = module.rds.database_url
     DOMAIN          = "lvh.me"
   }
 }
