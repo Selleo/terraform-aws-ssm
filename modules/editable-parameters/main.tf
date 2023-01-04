@@ -6,7 +6,7 @@ resource "aws_ssm_parameter" "this" {
   for_each = var.secrets
 
   name        = "${local.path}/${each.key}"
-  description = "${each.key} secret"
+  description = "${each.key} secret that can be edited via UI"
   type        = "SecureString"
   value       = each.value
 
@@ -17,7 +17,11 @@ resource "aws_ssm_parameter" "this" {
     "context.stage"       = var.context.stage
     "context.name"        = var.context.name
     "editor.path"         = local.path
-    "editor.readonly"     = "true"
+    "editor.readonly"     = "false"
     "editor.input"        = "text"
+  }
+
+  lifecycle {
+    ignore_changes = [value]
   }
 }
