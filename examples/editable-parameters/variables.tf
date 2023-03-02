@@ -5,19 +5,19 @@ variable "path" {
 }
 
 variable "namespace" {
-  description = "Parameter store path for all secrets. If empty then defaults to /namespace/stage/name."
+  description = "Namespace of the project."
   type        = string
-  default     = "test"
+  default     = "namespace"
 }
 
 variable "stage" {
-  description = "Parameter store path for all secrets. If empty then defaults to /namespace/stage/name."
+  description = "Name of stage in project"
   type        = string
-  default     = "test"
+  default     = "stage"
 }
 
 variable "name" {
-  description = "Parameter store path for all secrets. If empty then defaults to /namespace/stage/name."
+  description = "no idea how to describe that"
   type        = string
-  default     = "test"
+  default     = "name"
 }
