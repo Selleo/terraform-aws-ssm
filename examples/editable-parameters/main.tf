@@ -1,21 +1,14 @@
-locals {
-  path = var.path == "" ? "/${var.namespace}/${var.stage}/${var.name}" : var.path
-}
-
 module "info" {
   source  = "Selleo/context/null"
   version = "0.3.0"
   
-  namespace = var.namespace
-  stage     = var.stage
-  name      = var.name
+  namespace = "example"
+  stage     = "test"
+  name      = "ssm"
 }
 
 module "secrets" {
   source = "../../modules/editable-parameters"
-
-  context = module.info.context
-  path    = local.path
 
   secrets = {
     RAILS_ENV       = module.info.context.stage
