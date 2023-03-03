@@ -24,12 +24,7 @@ No requirements.
 
 ## Inputs
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Parameter store path for all secrets. If empty then defaults to /namespace/stage/name. | `string` | `"test"` | no |
-| <a name="input_namespace"></a> [namespace](#input\_namespace) | Parameter store path for all secrets. If empty then defaults to /namespace/stage/name. | `string` | `"test"` | no |
-| <a name="input_path"></a> [path](#input\_path) | Parameter store path for all secrets. If empty then defaults to /namespace/stage/name. | `string` | `""` | no |
-| <a name="input_stage"></a> [stage](#input\_stage) | Parameter store path for all secrets. If empty then defaults to /namespace/stage/name. | `string` | `"test"` | no |
+No inputs.
 
 ## Outputs
 
