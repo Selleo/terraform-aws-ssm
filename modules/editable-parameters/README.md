@@ -48,7 +48,7 @@ No modules.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.56.0 |
 
 ## Modules
 
@@ -58,7 +58,12 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [aws_iam_group.access_parameters](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group) | resource |
+| [aws_iam_group_policy_attachment.access_parameters](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_group_policy_attachment) | resource |
+| [aws_iam_policy.access_parameters_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_ssm_parameter.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ssm_parameter) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_iam_policy_document.access_parameters](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
 ## Inputs
 
@@ -66,6 +71,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_context"></a> [context](#input\_context) | Project context | <pre>object({<br>    namespace = string<br>    stage     = string<br>    name      = string<br>  })</pre> | n/a | yes |
 | <a name="input_path"></a> [path](#input\_path) | Parameter store path for all secrets. If empty then defaults to /namespace/stage/name. | `string` | `""` | no |
+| <a name="input_region"></a> [region](#input\_region) | Default AWS region | `string` | `"eu-central-1"` | no |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | Key-value map of secrets | `map(string)` | `{}` | no |
 
 ## Outputs
