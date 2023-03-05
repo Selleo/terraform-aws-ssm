@@ -10,6 +10,8 @@ module "info" {
 module "secrets" {
   source = "../../modules/editable-parameters"
 
+  context = module.info.context
+
   secrets = {
     RAILS_ENV       = module.info.context.stage
     PORT            = "3000"
