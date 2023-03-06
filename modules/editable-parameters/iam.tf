@@ -5,7 +5,7 @@ data "aws_region" "current" {
 }
 
 resource "random_id" "this" {
-  byte_length = 32
+  byte_length = 6
 }
 
 resource "aws_iam_group" "access_parameters" {
@@ -18,31 +18,30 @@ resource "aws_iam_group_policy_attachment" "access_parameters" {
 }
 
 resource "aws_iam_policy" "access_parameters_group" {
-  name = "ssm-access${replace(local.path, "/", "-")}-${random_id.this.hex}"
+  name   = "ssm-access${replace(local.path, "/", "-")}-${random_id.this.hex}"
   policy = data.aws_iam_policy_document.access_parameters.json
 }
 
 data "aws_iam_policy_document" "access_parameters" {
-  # statement {
-  #   effect = "Allow"
-  #   actions = [
-  #     "ssm:ListTagsForResource",
-  #     "ssm:GetParameter",
-  #     "ssm:PutParameter"
-  #   ]
-  #   resources = ["arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter${var.path}/*"]
-  # }
+  statement {
+    effect = "Allow"
+    actions = [
+      "ssm:PutParameter",
+      "ssm:DeleteParameter",
+      "ssm:GetParameterHistory",
+      "ssm:GetParametersByPath",
+      "ssm:GetParameters",
+      "ssm:GetParameter",
+      "ssm:DeleteParameters"
+    ]
+    resources = ["arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter${var.path}/*"]
+  }
 
   statement {
     effect = "Allow"
     actions = [
-        "ssm:DescribeParameters"
+      "ssm:DescribeParameters"
     ]
     resources = ["*"]
-        condition {
-        test     = "ForAnyValue:StringLike"
-        variable = "aws:PrincipalArn"
-        values   = ["arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter${var.path}/*"]
-    }
   }
 }
