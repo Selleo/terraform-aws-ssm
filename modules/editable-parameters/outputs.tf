@@ -7,7 +7,7 @@ output "secrets" {
 }
 
 output "ssm_access_group" {
-  description = "Autoscaling Group data."
+  description = "SSM Access group data."
   value = {
     arn  = aws_iam_group.access_parameters_group.arn
     name = aws_iam_group.access_parameters_group.name
