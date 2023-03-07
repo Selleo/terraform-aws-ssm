@@ -82,5 +82,5 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_secrets"></a> [secrets](#output\_secrets) | Store Parameters as Name-ARN map |
-| <a name="output_ssm_access_group"></a> [ssm\_access\_group](#output\_ssm\_access\_group) | Autoscaling Group data. |
+| <a name="output_ssm_access_group"></a> [ssm\_access\_group](#output\_ssm\_access\_group) | SSM Access group data. |
 <!-- END_TF_DOCS -->
