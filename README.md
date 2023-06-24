@@ -3,16 +3,8 @@
 Module for managing System Manager.
 
 Supported services:
-- store parameters
+- Store parameters
 - SSM documents for connecting to node
-
-## Development
-
-Generate docs:
-```
-terraform-docs markdown ./modules/ssm        > ./modules/ssm/README.md
-terraform-docs markdown ./modules/parameters > ./modules/parameters/README.md
-```
 
 ## LICENSE
 
