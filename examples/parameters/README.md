@@ -1,7 +1,11 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.0 |
 
 ## Providers
 
@@ -13,8 +17,8 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_info"></a> [info](#module\_info) | Selleo/context/null | 0.2.0 |
 | <a name="module_secrets"></a> [secrets](#module\_secrets) | ../../modules/parameters | n/a |
+| <a name="module_secrets_access"></a> [secrets\_access](#module\_secrets\_access) | ../../modules/parameters-access | n/a |
 
 ## Resources
 
@@ -30,5 +34,7 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_access_group"></a> [access\_group](#output\_access\_group) | n/a |
+| <a name="output_editable_secrets"></a> [editable\_secrets](#output\_editable\_secrets) | n/a |
 | <a name="output_secrets"></a> [secrets](#output\_secrets) | n/a |
 <!-- END_TF_DOCS -->
