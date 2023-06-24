@@ -1,24 +1,23 @@
-module "info" {
-  source  = "Selleo/context/null"
-  version = "0.2.0"
-
-  namespace = "selleo"
-  stage     = "production"
-  name      = "kudos-api"
-}
-
 module "secrets" {
   source = "../../modules/parameters"
 
-  context = module.info.context
-  path    = module.info.path
+  context = {
+    namespace = "selleo"
+    stage     = "staging"
+    name      = "api"
+  }
 
+  path = "/selleo/staging/api/terraform" # this is default based on context
   secrets = {
-    RAILS_ENV       = module.info.context.stage
+    RAILS_ENV       = "staging"
     PORT            = "3000"
     SECRET_KEY_BASE = random_id.secret_key_base.hex
-    DATABASE_URL    = module.rds.database_url
     DOMAIN          = "lvh.me"
+  }
+
+  editable_path = "/selleo/staging/api/editable" # this is default based on context
+  editable_secrets = {
+    THIRD_PARTY_SECRET = "Edit via UI then restart the service, changes in terraform are ignored"
   }
 }
 
@@ -28,4 +27,8 @@ resource "random_id" "secret_key_base" {
 
 output "secrets" {
   value = module.secrets.secrets
+}
+
+output "editable_secrets" {
+  value = module.secrets.editable_secrets
 }
